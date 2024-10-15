@@ -40,4 +40,14 @@ describe("문자열 계산기", () => {
 
     await expect(app.run()).rejects.toThrow("[ERROR]");
   });
+
+  test("커스텀 구분자 사용_2", async () => {
+    const inputs = ["1'3"];
+    mockQuestions(inputs);
+  
+    const app = new App();
+    
+    // 예외가 발생할 것을 기대하는 테스트
+    await expect(app.run()).rejects.toThrow("구분자가 올바르지 않습니다.");
+  });
 });
